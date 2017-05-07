@@ -30,7 +30,7 @@ var MapsLib = MapsLib || {}; MapsLib.schemaVersion = 2;
     // See https://developers.google.com/fusiontables/docs/v1/migration_guide for more info
 
     // The encrypted Table ID of your Fusion Table (found under File => About)
-    MapsLib.fusionTableId = "1PKrTw5__lW0gygeLsxH0cfg7Um-e-J07n-f-8c4f"; //PFAGOLD
+    MapsLib.fusionTableId = "1acC5wQLa--rbpAn9kiZwKTEWulxquXzmAj9GE9zT"; //GH	
 
     // *New Fusion Tables Requirement* API key. found at https://code.google.com/apis/console/
     // *Important* this key is for demonstration purposes. please register your own.
