@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta  name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <title>Visit Details </title>
+</head>
+
+<body>
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript">
+
+</script>
+
+<form id="input-form" action="" method="POST" target="no-target">
+  <input id="DB" value="GH" name="db"  readonly hidden>
+  <input id="RecordID" placeholder="123" name="recordID" readonly hidden>
+  Name :<input id="Name" placeholder="John Doe" name="name" readonly> <br>
+  Details:
+  	<select  id="Details" >
+      	<option value="Gave Targheeb">Gave Targheeb</option>
+      	<option value="Left Message">Left Message</option>
+      	<option value="Do Not Visit">Do Not Visit</option>
+    	<option value="No Response">No Response</option>
+  	</select><br>
+  Status<br>
+  <div id="IDSTATUS" >
+  <input type="checkbox" name="Status" id="Status" value="Khususi">Khususi<br>
+  <input type="checkbox" name="Status" id="Status" value="Student">Student<br>
+  <input type="checkbox" name="Status" id="Status" value="Old Worker">Old Worker<br>
+  <input type="checkbox" name="Status" id="Status" value="Follow up">Follow up<br>
+</div>
+  Comments : <input id="Comments" placeholder="Visited" name="Comments"><br>
+  <button id="form-submit" type="submit">SUBMIT</button>
+</form>
+
+<p id="input-feedback"></p>
+
+<iframe src="#" id="no-target" name="no-target" style="visibility:hidden"></iframe>
+
+<script type="text/javascript">
+$.urlParam = function(name){
+	var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	return decodeURI(results[1]) || 0;
+}
+
+$("#DB").val($.urlParam('DB'));
+$("#RecordID").val($.urlParam('ID'));
+$("#Name").val($.urlParam('Name'));
+var data =($.urlParam('Sts'));
+var dataarray=data.split(",");
+
+$('#IDSTATUS [value="'+dataarray.join('"],[value="')+'"]').prop('checked',true)
+
+</script>
+
+<script>
+
+    $('#input-form').one('submit',function(){
+    var sv="";
+    var checkValues = [];
+	$('#IDSTATUS input[name=Status]:checked').each(function() {
+	    checkValues.push($(this).val());
+
+	    sv=sv+"&entry.1409626892="+$(this).val();
+	});
+
+        var a = "entry.209305317";
+        var av = a+"="+encodeURIComponent($('#DB').val());
+
+        var b = "entry.1342295161";
+        var bv = b+"="+encodeURIComponent($('#RecordID').val());
+
+        var c = "entry.289481744";
+        var cv = c+"="+encodeURIComponent($('#Name').val());
+
+        var d = "entry.205737317";
+        var dv = d+"="+encodeURIComponent($('#Details').val());
+
+
+        var f = "entry.2127114696";
+        var fv = f+"="+encodeURIComponent($('#Comments').val());
+
+
+
+        var baseURL = 'https://docs.google.com/forms/d/e/1FAIpQLSdNRuDWQ5MxiSzYF00lahP4yC1VbjtjlIuF88WWtYCywj4i9w/formResponse?';
+        var submitRef = '&submit=Submit';
+        //var submitURL = (baseURL+a+"="+av+"&"+b+"="+bv+"&"+c+"="+cv+"&"+d+"="+dv+"&"+s+"="+sv+"&"+f+"="+fv+submitRef);
+        var submitURL = (baseURL+av+"&"+bv+"&"+cv+"&"+dv+"&"+sv+"&"+fv+submitRef);
+        console.log(submitURL);
+		alert(submitURL);
+        $(this)[0].action=submitURL;
+        $('#input-feedback').text('Thank You!');
+        window.close();
+    });
+</script>
+
+</body>
+</html>
