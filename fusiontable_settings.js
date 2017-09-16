@@ -214,9 +214,9 @@ $.extend(MapsLib, {
     // //                                  append "DESC" to sort in reverse
     // listViewSortByColumn: "name",
     customInfoboxHtml: 
-	"<b>ADD : </b><a href=https://maps.google.com?saddr=Current+Location&daddr={{row.Latitude}},{{row.Longtitude}}>{{row.Address}}</a><i>Name</i> : <b>{{row.Name}}</b><br>" +
-        "Last Visit:{{#if row.VisitDate}} {{row.VisitDate}}{{else}} <br>{{/if}}" + 
-	"<a href=\"VisitDetails.html?DB={{row.DB}}&Name={{row.Name}}&ID={{row.ID}}&Sts={{row.Status}}\" target=\"_blank\">Details</a>",	    
+"<b>ADD : </b><a href=https://maps.google.com?saddr=Current+Location&daddr={{row.Latitude}},{{row.Longtitude}}>{{row.Address}}</a> <br><i>Name</i> : <b>{{row.Name}}</b><br>" +
+"Last Visit:{{#if row.VisitDate}}<div style='white-space:pre-wrap; color:#484848;'>{{row.VisitDate}}</div>{{else}} <br>{{/if}}" + 
+"<a href=\"https://docs.google.com/forms/d/e/1FAIpQLSclYbRuQlD5_aZcEY-Ov6KqUQ8gtR_J4XQ4tFH95KUiMgODkQ/viewform?entry.589985326={{row.ID}}&entry.459245489={{row.Name}}&entry.322317336=visited\" target=\"_blank\">Details</a>",	    
 	//"<a href=\"https://docs.google.com/forms/d/e/1FAIpQLSc795r6QbByDPYBgcOMWDDI6hfT9t4Kn6idvGzvG_kkmCfuHw/viewform?entry.982276084={{row.County}}&entry.589985326={{row.ID}}&entry.459245489={{row.Name}}&entry.322317336=visited\" target=\"_blank\">Details</a>",	    
 /*
     customInfoboxHtml: "<b>{{row.Address}}, <br>{{row.City}}, {{row.State}}, {{row.Country}}</b><br>" + 
